@@ -14,7 +14,7 @@ def send():
         subject = temp_subject.get()
         body = temp_body.get()
         if username=="" or password=="" or to=="" or subject=="" or body=="":
-            notif.config(text='All fields required!' fg="red")
+            notif.config(text='All fields required!', fg="red")
             return
         else:
             finalMessage = 'Subject: {]\n\n{}'.format(subject, body)
@@ -22,9 +22,10 @@ def send():
             server.starttls()
             server.login(username,password)
             server.sendmail(username,to,finalMessage)
-            notif config(text='Email has been sent', fg='green')
+            notif, config(text='Email has been sent', fg='green')
     except:
         notif.config(text="Error sending email", fg="red")
+
 
             
 def reset():
